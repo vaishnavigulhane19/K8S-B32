@@ -24,9 +24,9 @@ spec:
   selector: 
     app:myapp
   ports:
-    -name: nginxcisvc
-    Protocol: TCP
-    port: 80
-    targetport: 80
+    - name: nginxcisvc
+      Protocol: TCP
+      port: 80
+      targetport: 80
 ...
     
