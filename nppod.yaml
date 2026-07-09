@@ -22,7 +22,7 @@ metadata:
 spec:
   type: NodePort
   selector:
-    app:nppod
+    app: nppod
   ports:
     - name: httpdsvcport
       protocol: TCP
