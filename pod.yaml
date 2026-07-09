@@ -24,10 +24,10 @@ spec:
   type: ClusterIP
   selector: 
     app: myapp
-ports:
-  - name: nginxcisvc
-    Protocol: TCP
-    port: 80
-    targetport: 80
+  ports:
+    - name: nginxcisvc
+      Protocol: TCP
+      port: 80
+      targetport: 80
 ...
     
