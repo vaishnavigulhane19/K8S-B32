@@ -23,7 +23,7 @@ metadata:
 spec:
   type: ClusterIP
   selector: 
-    app:myapp
+    app: myapp
   ports:
     - name: nginxcisvc
       Protocol: TCP
