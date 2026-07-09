@@ -1,0 +1,31 @@
+apiversion: v1
+kind: Pod
+metadata:
+  name: nppod
+  labels: 
+    app: nppod
+spec: 
+  containers:
+    - name: httpd-container
+      image: httpd:latest
+      ports:
+        - name: httpdport
+          containerPort: 80
+...
+---
+apiVersion: v1
+kind: Service
+metsdata:
+  name: nppod-service
+  labels:
+    app: nppod
+spec:
+  type: NodePort
+  selector:
+    app:nppod
+  ports:
+    - name: httpdsvcport
+      protocol: TCP
+      port: 80
+      targetPort: 80
+      
