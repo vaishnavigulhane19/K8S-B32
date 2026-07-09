@@ -15,7 +15,7 @@ spec:
 ---
 apiVersion: v1
 kind: Service
-metsdata:
+metadata:
   name: nppod-service
   labels:
     app: nppod
