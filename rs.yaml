@@ -1,48 +1,42 @@
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
-  name: my-rs 
+  name: my-rs
   labels:
     app: myapp
+
 spec:
   replicas: 5
   selector:
     matchLabels:
       app: myapp
+
   template:
     metadata:
-      labels: 
+      labels:
         app: myapp
+
     spec:
       containers:
         - name: mycont
           image: vaishnavigulhane19/studentapp
           ports:
-          containerPort: 80
-...
+            - containerPort: 80
 ---
 apiVersion: apps/v1
 kind: Service
 metadata:
   name: rs-svc
   labels:
-    app: myapps
+    app: myapp
+
 spec:
   type: NodePort
-  selector: 
+  selector:
     app: myapp
+
   ports:
     - name: myportsvc
       protocol: TCP
       port: 80
       targetPort: 80
-...
-
-      
-    
- 
-    
- 
-  
-  
-  
