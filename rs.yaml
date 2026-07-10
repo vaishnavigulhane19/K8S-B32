@@ -5,19 +5,20 @@ metadata:
   labels:
     app: myapp
 spec:
-  replica: 5
+  replicas: 5
   selector:
-    match labels:
+    matchLabels:
       app: myapp
   template:
     metadata:
       labels: 
         app: myapp
-  spec:
-    containers:
-    - name: mycont
-      image: vaishnavigulhane19/studentapp
-      containerPort: 80
+    spec:
+      containers:
+        - name: mycont
+          image: vaishnavigulhane19/studentapp
+          ports:
+          containerPort: 80
 ...
 ---
 apiVersion: v1
