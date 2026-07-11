@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: mydscont
-          image: amazon/cloudwatch-agent:latest
+          image: amazon/cloudwatch-agent
           ports:
             - name: myport
               containerPort: 80
