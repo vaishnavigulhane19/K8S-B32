@@ -10,14 +10,14 @@ spec:
       app: myapp
   template:
     metadata:
-      - name: mytemp
-        labels:
-          app: myapp
+      name: mytemp
+      labels:
+        app: myapp
     spec:
-      daemoncontainers:
+      containers:
         - name: mydscont
           image: amazon/cloudwatch-agent:latest
-      ports:
-        - name: myport
-          containerPort: 80
+          ports:
+            - name: myport
+              containerPort: 80
         
