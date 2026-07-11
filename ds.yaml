@@ -1,0 +1,23 @@
+apiVersion: ap/v1
+kind: DaemonSet
+metadata:
+  name: dsset
+  labels:
+    app: myapp
+spec:
+  selector:
+    matchaLables:
+      app: myapp
+  template:
+    metadata:
+      - name: mytemp
+        lables:
+          app: myapp
+    spec:
+      daemoncontainers:
+        - name: mydscont
+          image: amazon/cloudwatch-agent:latest
+      ports:
+        - name: myport
+          containerPort: 80
+        
