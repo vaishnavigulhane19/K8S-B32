@@ -1,4 +1,4 @@
-apiVersion: ap/v1
+apiVersion: apps/v1
 kind: DaemonSet
 metadata:
   name: dsset
@@ -6,12 +6,12 @@ metadata:
     app: myapp
 spec:
   selector:
-    matchaLables:
+    matchLabels:
       app: myapp
   template:
     metadata:
       - name: mytemp
-        lables:
+        labels:
           app: myapp
     spec:
       daemoncontainers:
