@@ -1,7 +1,7 @@
 apiVersion: v1
-kind: Podofci
+kind: Pod
 metadata:
-  name: mypod
+  name: mypodofci
   labels: 
     app: myapp
 spec:
