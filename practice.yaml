@@ -24,6 +24,7 @@ spec:
   selector:
     app: myapp
   ports:
-    protocol: TCP
-    targetPort: 80
-    port: 80
+    - name: myport
+      protocol: TCP
+      targetPort: 80
+      port: 80
