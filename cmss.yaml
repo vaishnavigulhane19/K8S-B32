@@ -23,13 +23,28 @@ spec:
               containerPort: 3306
           env:
             - name: MYSQL_USER
-              value: admin
+              valueFrom:
+                configMapKeyRef:
+                  name: myconfigmap
+                  key: mysql_user
+
             - name: MYSQL_PASSWORD
-              value: admin123
+              valueFrom: 
+                configMapKeyRef:
+                  name: myconfigmap
+                  key: mysql_password
+                
             - name: MYSQL_DATABASE
-              value: studentapp
+              valueFrom:
+                configMapKeyRef:
+                  name: myconfigmap
+                  key: mysql_database
+
             - name: MYSQL_ROOT_PASSWORD
-              value: root
+              valueFrom:
+                configMapKeyRef:
+                  name: myconfigmap
+                  key: mysql_root_password
 ...
 ---
 apiVersion: v1
