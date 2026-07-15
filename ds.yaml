@@ -20,4 +20,3 @@ spec:
           ports:
             - name: myport
               containerPort: 80
-        
