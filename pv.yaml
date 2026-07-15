@@ -6,11 +6,11 @@ metadata:
     app: myapp
 spec:
   capacity:
-  storage: 10Gi
-accessModes:
-  - ReadWriteOnce
-storageClassName: standered
-volumeMode: Filesystem
-persistentVolumeReclainPolicy: Retain
-hostPath:
-  path: /mnt/data
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: standard
+  volumeMode: Filesystem
+  persistentVolumeReclaimPolicy: Retain
+  hostPath:
+    path: /mnt/data
