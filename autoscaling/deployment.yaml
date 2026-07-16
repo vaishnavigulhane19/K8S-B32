@@ -1,28 +1,32 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: my_deployment
-  labels:
+apiVersion: apps/v1 
+kind: Deployment 
+metadata: 
+  name: my-deployment
+  labels: 
     app: myapp
-  namespace: myspace
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
+  namespace: hpa 
+spec: 
+  replicas: 1 
+  selector: 
+    matchLabels: 
       app: myapp
   template: 
-    metadata:
-      name: mytemp
-      labels:
+    metadata: 
+      name: my-template
+      labels: 
         app: myapp
-    spec:
-      containers:
-        - name: mycont
-          image: nginx:latest
-          ports:
-            - name: myport
+    spec: 
+      containers: 
+        - name: nginx-container
+          image: nginx:latest 
+          ports: 
+            - name: myport 
               containerPort: 80
-          resources:
-            requests:
+              
+          resources: 
+            requests: 
               cpu: "100m"
-              memory: "64M"
+              memory: "64Mi" 
+            limits: 
+              cpu: "200m"
+              memory: "128Mi"

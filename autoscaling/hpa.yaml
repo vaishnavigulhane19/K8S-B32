@@ -1,23 +1,21 @@
 apiVersion: autoscaling/v2
-kind: HorizontalPodAutoscaler
-metadata:
-  name: myhpa
+kind: HorizontalPodAutoscaler 
+metadata: 
+  name: hpa 
   labels: 
     app: myapp
-  namespace: myspace
-spec:
-  scaleTargetRef:
-    apiVersion: app/v1
-    kind: Deployment
-    name: my_deployment
-  minreplicas: 1
-  maxreplicas: 5
-  metrics:
-    - type: Resource
-      resource:
-        name: cpu
-        target:
-          type: Utilization
-          averageUtilization: 40
-      
-  
+  namespace: hpa
+spec: 
+  scaleTargetRef: 
+    apiVersion: apps/v1 
+    kind: Deployment 
+    name: my-deployment 
+  minReplicas: 1
+  maxReplicas: 5
+  metrics: 
+  - type: Resource 
+    resource: 
+      name: cpu 
+      target: 
+        type: Utilization 
+        averageUtilization: 40 
