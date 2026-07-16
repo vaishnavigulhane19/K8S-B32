@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mydeployment
+  name: my_deployment
   labels:
     app: myapp
   namespace: myspace
@@ -9,7 +9,7 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: my app
+      app: myapp
   template: 
     metadata:
       name: mytemp
