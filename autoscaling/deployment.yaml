@@ -22,3 +22,7 @@ spec:
           ports:
             - name: myport
               containerPort: 80
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "64M"
