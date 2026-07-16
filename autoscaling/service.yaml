@@ -6,7 +6,6 @@ metadata:
     app: myapp
   namespace: myspace
 spec:
-  containers:
     type: ClusterIP
     selector:
       app: myapp
