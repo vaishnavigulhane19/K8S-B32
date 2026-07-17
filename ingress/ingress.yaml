@@ -1,0 +1,33 @@
+apiVersion: networking.k8s.io/v1 
+kind: Ingress 
+metadata: 
+  name: nginx-ingress 
+  annotations: 
+    nginx.ingress.kubernetes.io/rewrite-target: / 
+spec: 
+  ingressClassName: nginx 
+  rules: 
+  - host: mayurcbz.space 
+    http: 
+      paths: 
+      - path: / 
+        pathType: Prefix 
+        backend: 
+          service: 
+            name: home-svc 
+            port: 
+              number: 80 
+      - path: /mobile 
+        pathType: Prefix 
+        backend: 
+          service: 
+            name: mobile-svc 
+            port: 
+              number: 80
+      - path: /laptop 
+        pathType: Prefix 
+        backend:  
+          service:  
+            name: laptop-svc 
+            port:  
+              number: 8080
