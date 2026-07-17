@@ -1,45 +1,63 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: home-deployment
+apiVersion: apps/v1 
+kind: Deployment 
+metadata: 
+  name: home-deployment 
   labels: 
-    app: home
-spec:
+    app: home 
+spec: 
   replicas: 1
-  selector:
-    matchLabels:
-      app: home
+  selector: 
+    matchLabels: 
+      app: home 
   template: 
-  metadata:
-    name: home-template
-    labels:
-      app: home
-  spec:
-    containers:
-      - name: nginx-container
-        image: nginx:latest
-        ports:
-          - name: myport
-            containerPort: 80
+    metadata: 
+      name: home-template 
+      labels: 
+        app: home 
+    spec: 
+      containers: 
+        - name: nginx-container 
+          image: nginx:latest
+          ports: 
+            - name: myport 
+              containerPort: 80
 ...
 ---
-apiVersion: v1
-kind: Service
-metadata:
-  name: hone-svc
-  app: home
-spec:
-  scaleTargetRef:
-    apiVersion: apps/v1
-    kind: Deployment
+apiVersion: v1 
+kind: Service 
+metadata: 
+  name: home-svc 
+  labels: 
+    app: home 
+spec: 
+  type: ClusterIP 
+  selector: 
+    app: home 
+  ports: 
+    - name: home-svc-port 
+      protocol: TCP 
+      port: 80 
+      targetPort: 80
+...
+---
+apiVersion: autoscaling/v2 
+kind: HorizontalPodAutoscaler 
+metadata: 
+  name: home-hpa 
+  labels: 
+    app: home 
+spec: 
+  scaleTargetRef: 
+    apiVersion: apps/v1 
+    kind: Deployment 
     name: home-deployment
   minReplicas: 1
-  maxReplicas: 5
+  maxReplicas: 5 
   metrics: 
-    - type: Resource
-      resource:
-        name: cpu
-        target: 
-          type: Utilization
-          averageUtilization: 40
-
+  - type: Resource 
+    resource: 
+      name: cpu 
+      target: 
+        type: Utilization 
+        averageUtilization: 40
+... 
